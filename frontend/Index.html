@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг на лето</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Список книг на Лето</h1>
+        <p class="description">Добавляйте и просматривайте ваш список книг, которые вы должны или уже прочитали</p>
+
+        <form id="bookForm">
+            <input type="text" id="bookName" placeholder="Название книги" required>
+            <select id="bookStatus">
+                <option value="NS">📖 Не прочитанные</option>
+                <option value="S">🎯 Взятые</option>
+                <option value="P">⚙️ В процессе</option>
+                <option value="F">✅ Законченные</option>
+            </select>
+            <button type="submit">➕ Добавить книгу</button>
+        </form>
+
+        <div class="filters-panel">
+            <div class="filter-group">
+                <label>🔍 Фильтр по статусу:</label>
+                <select id="filterStatus">
+                    <option value="all">Все книги</option>
+                    <option value="NS">📖 Не прочитанные</option>
+                    <option value="S">🎯 Взятые</option>
+                    <option value="P">⚙️ В процессе</option>
+                    <option value="F">✅ Законченные</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>📊 Сортировка:</label>
+                <select id="sortBy">
+                    <option value="date">По дате добавления (новые)</option>
+                    <option value="dateOld">По дате добавления (старые)</option>
+                    <option value="name">По названию (А-Я)</option>
+                    <option value="nameDesc">По названию (Я-А)</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="board">
+            <div class="column" data-status="NS">
+                <div class="column-header">
+                    <h2>📖 Не прочитанные</h2>
+                    <span class="book-count" id="countNS">0</span>
+                </div>
+                <div class="book-list" id="nsList"></div>
+            </div>
+
+            <div class="column" data-status="S">
+                <div class="column-header">
+                    <h2>🎯 Взятые</h2>
+                    <span class="book-count" id="countS">0</span>
+                </div>
+                <div class="book-list" id="sList"></div>
+            </div>
+
+            <div class="column" data-status="P">
+                <div class="column-header">
+                    <h2>⚙️ В процессе</h2>
+                    <span class="book-count" id="countP">0</span>
+                </div>
+                <div class="book-list" id="pList"></div>
+            </div>
+
+            <div class="column" data-status="F">
+                <div class="column-header">
+                    <h2>✅ Законченные</h2>
+                    <span class="book-count" id="countF">0</span>
+                </div>
+                <div class="book-list" id="fList"></div>
+            </div>
+        </div>
+
+
+        <div class="total-counter">
+            📚 Всего книг в списке: <span id="totalBooks">0</span>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
