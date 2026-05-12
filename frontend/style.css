@@ -106,7 +106,6 @@ h1 {
     padding: 15px;
     min-width: 280px;
     flex: 1;
-    transition: background 0.2s;
 }
 
 .column.drag-over {
